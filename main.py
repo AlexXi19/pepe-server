@@ -3,8 +3,15 @@
 import http.server
 import socketserver
 import platform
+import argparse
 
-PORT = 8000
+DEFAULT_PORT = 8000
+
+parser = argparse.ArgumentParser(description="Start a simple HTTP server.")
+parser.add_argument("--port", type=int, default=DEFAULT_PORT,
+                    help=f"Specify the port. Default is {DEFAULT_PORT}.")
+args = parser.parse_args()
+PORT = args.port
 
 
 PEPE = """
@@ -34,6 +41,7 @@ PEPE = """
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠈⠻⢦⡀⠀⣰⠏⠀⠀⢀⡴⠃⢀⡄⠙⣆⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡾⢷⡄⠀⠀⠀⠀⠉⠙⠯⠀⠀⡴⠋⠀⢠⠟⠀⠀⢹⡄
 """
+
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):

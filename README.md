@@ -18,6 +18,12 @@ or
 ./main --port 3000
 ```
 
+or 
+
+```
+docker run -p 8000:8000 alexxi19/pepe-server:latest
+```
+
 Send request
 
 ```

@@ -29,5 +29,7 @@ Send request
 ```
 curl localhost:8000
 ```
-
-
+or
+```
+curl https://alexxi.dev/pepe
+```
